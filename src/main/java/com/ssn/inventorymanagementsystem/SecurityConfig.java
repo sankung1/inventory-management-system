@@ -13,14 +13,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //create an in memory user with the given roles admin and employee
+    // add the password encoder bean we initialized to our user passwords to encode them with
+    // the bcrypt encoder.
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
 
                 .inMemoryAuthentication()
-                .withUser("admin").password("admin1234").roles("ADMIN")
+                .withUser("admin").password(passwordEncoder().encode("admin1234")).roles("ADMIN")
                 .and()
-                .withUser("sankung").password("sankung1234").roles("EMPLOYEE");
+                .withUser("sankung").password(passwordEncoder().encode("sankung1234")).roles("EMPLOYEE");
     }
 
     // override the configure method to authorize the authenticated user to see certain views based on their roles
