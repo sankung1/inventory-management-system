@@ -20,9 +20,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth
 
                 .inMemoryAuthentication()
-                .withUser("admin").password(passwordEncoder().encode("admin1234")).roles("ADMIN")
+                .withUser("admin")
+                .password(passwordEncoder().encode("admin1234"))
+                .roles("ADMIN")
+                .authorities("ACCESS_testPage")
                 .and()
-                .withUser("sankung").password(passwordEncoder().encode("sankung1234")).roles("EMPLOYEE");
+                .withUser("sankung")
+                .password(passwordEncoder().encode("sankung1234"))
+                .roles("EMPLOYEE");
     }
 
     // override the configure method to authorize the authenticated user to see certain views based on their roles
@@ -31,7 +36,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
 
                 .authorizeRequests()
-                .anyRequest().authenticated()
+                .antMatchers("/userlogin/loginPage.html").permitAll()
+                .antMatchers("/profile/**").authenticated()
+                .antMatchers("/admin/**").hasRole("Admin")
+                .antMatchers("/employee/**").hasAnyRole("ADMIN","EMPLOYEE")
                 .and()
                 .httpBasic();
     }
