@@ -16,20 +16,20 @@ public class User {
     @Column(nullable = false)
     private String lastName;
     @Column(nullable = false)
-    private String email;
-    @Column(nullable = false)
-    private String password;
+    private String password = " ";
     @Column(nullable = false)
     private String username;
-
+    @Column
     private String roles = "";
-
+    @Column
     private String permissions = "";
 
-    public User(String firstName, String lastName, String email, String password, String roles, String permissions, String username) {
+
+
+
+    public User(String firstName, String lastName, String password, String username, String roles, String permissions) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
         this.password = password;
         this.roles = roles;
         this.permissions = permissions;
@@ -64,14 +64,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -88,14 +80,13 @@ public class User {
         this.roles = roles;
     }
 
-    public String getPermissions() {
+   public String getPermissions() {
         return permissions;
     }
 
     public void setPermissions(String permissions) {
         this.permissions = permissions;
     }
-
     public String getUsername() {
         return username;
     }
@@ -111,10 +102,13 @@ public class User {
         return new ArrayList<>();
     }
 
+
     public List<String> getPermissionList(){
         if (this.roles.length() > 0){
             return Arrays.asList(this.permissions.split(","));
         }
         return new ArrayList<>();
     }
+
+
 }
