@@ -18,6 +18,7 @@ public class UserPrincipal implements UserDetails {
 
 
     public UserPrincipal (User user){
+        super();
         this.user = user;
     }
     @Override
@@ -45,18 +46,15 @@ public class UserPrincipal implements UserDetails {
     @Override
     public String getPassword() {
         System.out.println("5aaaaaa ");
-       // return this.user.getPassword();
-        return "$2a$10$Xq4SNcjRpAmEbXTfRHOPAO/8QIw.MZR10VNndfR6eAvbHS1Qp62Xu";
+       return this.user.getPassword();
     }
 
     @Override
     public String getUsername() {
+
         return this.user.getUsername();
     }
 
-    public String getFirstName(){
-        return this.user.getFirstName();
-    }
 
     @Override
     public boolean isAccountNonExpired() {
