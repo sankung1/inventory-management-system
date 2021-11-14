@@ -45,13 +45,11 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-        System.out.println("5aaaaaa " + this.user.getPassword());
        return this.user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        System.out.println("10aaaaaa "+ user.getUsername());
         return this.user.getUsername();
     }
 
