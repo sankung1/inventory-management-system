@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/inventory")
 public class InventoryController {
 
-    @GetMapping
+    @GetMapping("index")
     public String inventoryPage(){
         return "inventory/index";
     }
-    @GetMapping("/addInventory")
+    @GetMapping("addInventory")
     public String addInventory(){
         return "inventory/addInventory";
     }

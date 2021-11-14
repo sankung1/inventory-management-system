@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html th:insert="fragments.html :: nav">
-<head>
-    <meta charset="UTF-8">
-    <title>Add-User</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
 <body>
+<header th:insert="fragments.html :: navbar"></header>
 <form class="row g-3">
     <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Email</label>

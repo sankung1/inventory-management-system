@@ -26,12 +26,12 @@ public class UserPrincipal implements UserDetails {
         List<GrantedAuthority> authorities = new ArrayList<>();
 
         // this extracts the list of permissions(name)
-
+/*
         this.user.getPermissionList().forEach(permissions ->{
             GrantedAuthority authority = new SimpleGrantedAuthority(permissions);
             authorities.add(authority);
         });
-
+*/
 
 
         //this extracts the list of roles our users have
@@ -45,13 +45,13 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-        System.out.println("5aaaaaa ");
+        System.out.println("5aaaaaa " + this.user.getPassword());
        return this.user.getPassword();
     }
 
     @Override
     public String getUsername() {
-
+        System.out.println("10aaaaaa "+ user.getUsername());
         return this.user.getUsername();
     }
 

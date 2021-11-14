@@ -36,13 +36,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
 
                 .authorizeRequests()
-                .antMatchers("/loginPage.html").permitAll()
-                .antMatchers("/homePage").authenticated()
+                .antMatchers("/index.html").permitAll()
+                //.antMatchers("/homePage").authenticated()
                 .antMatchers("/createUser/**").hasRole("ADMIN")
                 .antMatchers("/inventory/**").hasAnyRole("ADMIN","EMPLOYEE")
                 .and()
                 .formLogin()
-                .loginPage("/loginPage");
+                .loginPage("/login");
     }
 
     @Bean

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/createUser")
 public class CreateUserController {
-    @GetMapping
+    @GetMapping("index")
     public String addUser(){
         return "createUser/index";
     }
